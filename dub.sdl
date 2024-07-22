@@ -21,27 +21,17 @@ dflags \
     "--preview=in"
 
 // ImportC preprocessor flags
-dflags "-P-w"
 dflags \
-    "-P-D__IMPORTC__" \
+    "-P-Wno-macro-redefined"
+dflags \
     "-P-D__GLIBC_USE(arg)=0"
-buildType "debug" {
-    dflags "--gc" // Generate C-like debug info
-    dflags "-P-I${ROOT_PACKAGE_DIR}/idf-project/debug/build/config"
-}
-buildType "release" {
-    dflags "-P-I${ROOT_PACKAGE_DIR}/idf-project/release/build/config"
-}
 dflags \
     "-P-I/opt/esp-idf/components/app_trace/include" \
-    "-P-I/opt/esp-idf/components/app_trace/include" \
-    "-P-I/opt/esp-idf/components/app_update/include" \
     "-P-I/opt/esp-idf/components/app_update/include" \
     "-P-I/opt/esp-idf/components/asio/include" \
     "-P-I/opt/esp-idf/components/asio/asio/asio/include" \
     "-P-I/opt/esp-idf/components/asio/port/include" \
     "-P-I/opt/esp-idf/components/bootloader/include" \
-    "-P-I/opt/esp-idf/components/bootloader_support/include" \
     "-P-I/opt/esp-idf/components/bootloader_support/include" \
     "-P-I/opt/esp-idf/components/bt/include" \
     "-P-I/opt/esp-idf/components/cbor/include" \
@@ -56,70 +46,43 @@ dflags \
     "-P-I/opt/esp-idf/components/console" \
     "-P-I/opt/esp-idf/components/cxx/include" \
     "-P-I/opt/esp-idf/components/driver/include" \
-    "-P-I/opt/esp-idf/components/driver/include" \
     "-P-I/opt/esp-idf/components/driver/esp32/include" \
-    "-P-I/opt/esp-idf/components/efuse/include" \
     "-P-I/opt/esp-idf/components/efuse/include" \
     "-P-I/opt/esp-idf/components/efuse/esp32/include" \
     "-P-I/opt/esp-idf/components/esp-tls/include" \
     "-P-I/opt/esp-idf/components/esp-tls" \
     "-P-I/opt/esp-idf/components/esp-tls/esp-tls-crypto" \
     "-P-I/opt/esp-idf/components/esp32/include" \
-    "-P-I/opt/esp-idf/components/esp32/include" \
-    "-P-I/opt/esp-idf/components/esp_adc_cal/include" \
     "-P-I/opt/esp-idf/components/esp_adc_cal/include" \
     "-P-I/opt/esp-idf/components/esp_common/include" \
-    "-P-I/opt/esp-idf/components/esp_common/include" \
-    "-P-I/opt/esp-idf/components/esp_eth/include" \
     "-P-I/opt/esp-idf/components/esp_eth/include" \
     "-P-I/opt/esp-idf/components/esp_event/include" \
-    "-P-I/opt/esp-idf/components/esp_event/include" \
-    "-P-I/opt/esp-idf/components/esp_gdbstub/include" \
     "-P-I/opt/esp-idf/components/esp_gdbstub/include" \
     "-P-I/opt/esp-idf/components/esp_hid/include" \
-    "-P-I/opt/esp-idf/components/esp_hid/include" \
-    "-P-I/opt/esp-idf/components/esp_http_client/include" \
     "-P-I/opt/esp-idf/components/esp_http_client/include" \
     "-P-I/opt/esp-idf/components/esp_http_server/include" \
-    "-P-I/opt/esp-idf/components/esp_http_server/include" \
-    "-P-I/opt/esp-idf/components/esp_https_ota/include" \
     "-P-I/opt/esp-idf/components/esp_https_ota/include" \
     "-P-I/opt/esp-idf/components/esp_https_server/include" \
-    "-P-I/opt/esp-idf/components/esp_hw_support/include" \
     "-P-I/opt/esp-idf/components/esp_hw_support/include" \
     "-P-I/opt/esp-idf/components/esp_hw_support/include/soc" \
     "-P-I/opt/esp-idf/components/esp_hw_support/include/soc/esp32" \
     "-P-I/opt/esp-idf/components/esp_ipc/include" \
-    "-P-I/opt/esp-idf/components/esp_ipc/include" \
-    "-P-I/opt/esp-idf/components/esp_lcd/include" \
     "-P-I/opt/esp-idf/components/esp_lcd/include" \
     "-P-I/opt/esp-idf/components/esp_lcd/interface" \
     "-P-I/opt/esp-idf/components/esp_local_ctrl/include" \
-    "-P-I/opt/esp-idf/components/esp_local_ctrl/include" \
     "-P-I/opt/esp-idf/components/esp_netif/include" \
-    "-P-I/opt/esp-idf/components/esp_netif/include" \
-    "-P-I/opt/esp-idf/components/esp_phy/include" \
     "-P-I/opt/esp-idf/components/esp_phy/include" \
     "-P-I/opt/esp-idf/components/esp_phy/esp32/include" \
     "-P-I/opt/esp-idf/components/esp_pm/include" \
-    "-P-I/opt/esp-idf/components/esp_pm/include" \
     "-P-I/opt/esp-idf/components/esp_ringbuf/include" \
-    "-P-I/opt/esp-idf/components/esp_ringbuf/include" \
-    "-P-I/opt/esp-idf/components/esp_rom/include" \
     "-P-I/opt/esp-idf/components/esp_rom/include" \
     "-P-I/opt/esp-idf/components/esp_rom/include/esp32" \
     "-P-I/opt/esp-idf/components/esp_rom/esp32" \
     "-P-I/opt/esp-idf/components/esp_serial_slave_link/include" \
-    "-P-I/opt/esp-idf/components/esp_serial_slave_link/include" \
-    "-P-I/opt/esp-idf/components/esp_system/include" \
     "-P-I/opt/esp-idf/components/esp_system/include" \
     "-P-I/opt/esp-idf/components/esp_timer/include" \
-    "-P-I/opt/esp-idf/components/esp_timer/include" \
-    "-P-I/opt/esp-idf/components/esp_websocket_client/include" \
     "-P-I/opt/esp-idf/components/esp_websocket_client/include" \
     "-P-I/opt/esp-idf/components/esp_wifi/include" \
-    "-P-I/opt/esp-idf/components/esp_wifi/include" \
-    "-P-I/opt/esp-idf/components/espcoredump/include" \
     "-P-I/opt/esp-idf/components/espcoredump/include" \
     "-P-I/opt/esp-idf/components/espcoredump/include/port/xtensa" \
     "-P-I/opt/esp-idf/components/esptool_py/include" \
@@ -133,29 +96,22 @@ dflags \
     "-P-I/opt/esp-idf/components/freemodbus/include" \
     "-P-I/opt/esp-idf/components/freemodbus/freemodbus/common/include" \
     "-P-I/opt/esp-idf/components/freertos/include" \
-    "-P-I/opt/esp-idf/components/freertos/include" \
     "-P-I/opt/esp-idf/components/freertos/include/esp_additions/freertos" \
     "-P-I/opt/esp-idf/components/freertos/port/xtensa/include" \
     "-P-I/opt/esp-idf/components/freertos/include/esp_additions" \
     "-P-I/opt/esp-idf/components/hal/include" \
     "-P-I/opt/esp-idf/components/hal/esp32/include" \
-    "-P-I/opt/esp-idf/components/hal/include" \
     "-P-I/opt/esp-idf/components/hal/platform_port/include" \
     "-P-I/opt/esp-idf/components/heap/include" \
-    "-P-I/opt/esp-idf/components/heap/include" \
-    "-P-I/opt/esp-idf/components/idf_test/include" \
     "-P-I/opt/esp-idf/components/idf_test/include" \
     "-P-I/opt/esp-idf/components/idf_test/include/esp32" \
     "-P-I/opt/esp-idf/components/ieee802154/include" \
-    "-P-I/opt/esp-idf/components/ieee802154/include" \
-    "-P-I/opt/esp-idf/components/jsmn/include" \
     "-P-I/opt/esp-idf/components/jsmn/include" \
     "-P-I/opt/esp-idf/components/json/include" \
     "-P-I/opt/esp-idf/components/json/cJSON" \
     "-P-I/opt/esp-idf/components/libsodium/include" \
     "-P-I/opt/esp-idf/components/libsodium/libsodium/src/libsodium/include" \
     "-P-I/opt/esp-idf/components/libsodium/port_include" \
-    "-P-I/opt/esp-idf/components/log/include" \
     "-P-I/opt/esp-idf/components/log/include" \
     "-P-I/opt/esp-idf/components/lwip/include" \
     "-P-I/opt/esp-idf/components/lwip/include/apps" \
@@ -168,7 +124,6 @@ dflags \
     "-P-I/opt/esp-idf/components/mbedtls/mbedtls/include" \
     "-P-I/opt/esp-idf/components/mbedtls/esp_crt_bundle/include" \
     "-P-I/opt/esp-idf/components/mdns/include" \
-    "-P-I/opt/esp-idf/components/mdns/include" \
     "-P-I/opt/esp-idf/components/mqtt/include" \
     "-P-I/opt/esp-idf/components/mqtt/esp-mqtt/include" \
     "-P-I/opt/esp-idf/components/newlib/include" \
@@ -177,12 +132,9 @@ dflags \
     "-P-I/opt/esp-idf/components/nghttp/port/include" \
     "-P-I/opt/esp-idf/components/nghttp/nghttp2/lib/includes" \
     "-P-I/opt/esp-idf/components/nvs_flash/include" \
-    "-P-I/opt/esp-idf/components/nvs_flash/include" \
-    "-P-I/opt/esp-idf/components/openssl/include" \
     "-P-I/opt/esp-idf/components/openssl/include" \
     "-P-I/opt/esp-idf/components/openthread/include" \
     "-P-I/opt/esp-idf/components/partition_table/include" \
-    "-P-I/opt/esp-idf/components/perfmon/include" \
     "-P-I/opt/esp-idf/components/perfmon/include" \
     "-P-I/opt/esp-idf/components/protobuf-c/include" \
     "-P-I/opt/esp-idf/components/protobuf-c/protobuf-c" \
@@ -191,41 +143,27 @@ dflags \
     "-P-I/opt/esp-idf/components/protocomm/include/security" \
     "-P-I/opt/esp-idf/components/protocomm/include/transports" \
     "-P-I/opt/esp-idf/components/pthread/include" \
-    "-P-I/opt/esp-idf/components/pthread/include" \
-    "-P-I/opt/esp-idf/components/sdmmc/include" \
     "-P-I/opt/esp-idf/components/sdmmc/include" \
     "-P-I/opt/esp-idf/components/soc/include" \
-    "-P-I/opt/esp-idf/components/soc/include" \
-    "-P-I/opt/esp-idf/components/spi_flash/include" \
     "-P-I/opt/esp-idf/components/spi_flash/include" \
     "-P-I/opt/esp-idf/components/spiffs/include" \
-    "-P-I/opt/esp-idf/components/spiffs/include" \
     "-P-I/opt/esp-idf/components/tcp_transport/include" \
-    "-P-I/opt/esp-idf/components/tcp_transport/include" \
-    "-P-I/opt/esp-idf/components/tcpip_adapter/include" \
     "-P-I/opt/esp-idf/components/tcpip_adapter/include" \
     "-P-I/opt/esp-idf/components/tinyusb/include" \
     "-P-I/opt/esp-idf/components/ulp/include" \
-    "-P-I/opt/esp-idf/components/ulp/include" \
-    "-P-I/opt/esp-idf/components/unity/include" \
     "-P-I/opt/esp-idf/components/unity/include" \
     "-P-I/opt/esp-idf/components/unity/unity/src" \
     "-P-I/opt/esp-idf/components/usb/include" \
     "-P-I/opt/esp-idf/components/vfs/include" \
-    "-P-I/opt/esp-idf/components/vfs/include" \
-    "-P-I/opt/esp-idf/components/wear_levelling/include" \
     "-P-I/opt/esp-idf/components/wear_levelling/include" \
     "-P-I/opt/esp-idf/components/wifi_provisioning/include" \
-    "-P-I/opt/esp-idf/components/wifi_provisioning/include" \
-    "-P-I/opt/esp-idf/components/wpa_supplicant/include" \
     "-P-I/opt/esp-idf/components/wpa_supplicant/include" \
     "-P-I/opt/esp-idf/components/wpa_supplicant/port/include" \
     "-P-I/opt/esp-idf/components/wpa_supplicant/esp_supplicant/include" \
     "-P-I/opt/esp-idf/components/xtensa/include" \
-    "-P-I/opt/esp-idf/components/xtensa/include" \
     "-P-I/opt/esp-idf/components/xtensa/esp32/include" \
     "-P-I/opt/esp-idf/components/soc/esp32/include"
 configuration "esp32" {
-    dflags "-P-D__XTENSA__"
     dflags "-P-I${HOME}/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/include"
 }
+
