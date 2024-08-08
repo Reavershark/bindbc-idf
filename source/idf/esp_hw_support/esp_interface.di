@@ -1,6 +1,6 @@
 module idf.esp_hw_support.esp_interface;
 
-@safe pure nothrow extern(C):
+@safe nothrow @nogc extern(C):
 
 enum esp_interface_t
 {
