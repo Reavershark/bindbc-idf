@@ -239,7 +239,7 @@ esp_err_t esp_intr_disable(intr_handle_t handle);
  * @return ESP_ERR_INVALID_ARG if the combination of arguments is invalid.
  *         ESP_OK otherwise
  */
-esp_err_t esp_intr_enable(intr_handle_t handle);
+esp_err_t esp_intr_enable(scope intr_handle_t handle);
 
 /**
  * @brief Set the "in IRAM" status of the handler.
